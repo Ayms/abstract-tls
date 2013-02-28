@@ -1,7 +1,7 @@
 TLS implementation independant of the transport layer
 ===
 
-Adaptation of [forge] () TLS abstract concept and replacement of forge buffers by ArrayBuffers/Typed Arrays
+Adaptation of [forge] (https://github.com/digitalbazaar/forge) TLS abstract concept and replacement of forge buffers by ArrayBuffers/Typed Arrays
 
 ## Presentation :
 
@@ -17,7 +17,7 @@ See lib/abstract-tls.js which shows :
 * how to use the abstract-tls server over a TCP connection connected to a real TLS client
 * how to use the abstract-tls server and client inside the browsers using websocket
 
-abstract-tls.js does include all the necessary code from forge project minified to establish tls connections in a browser or node.js environment, if you are using node.js you can of course link directly the required modules (and remove the window var).
+lib/abstract-tls.js does include all the necessary code from forge project minified to establish tls connections in a browser or node.js environment, if you are using node.js you can of course link directly the required modules (and remove the window var).
 
 lib/browser-tls.js is just an adaptation of forge node-tls.js that can be ran directly inside browsers to test the abstract tls client and server
 
@@ -44,7 +44,7 @@ Since the forge code does manipulate strings we must conserve for now the (depre
 
 Buffers can be hex buffers or text utf-8 encoded buffers using TextEncoder and TextDecoder functions (based on http://encoding.spec.whatwg.org/#api ).
 
-Standard new Typed Array buffers do override potential already existing Buffer interface and follow node.js's more friendly Buffer syntax (see [Ayms/node-typedarray](https://github.com/Ayms/node-typedarray)
+Standard new Typed Array buffers do override potential already existing Buffer interface and follow node.js's more friendly Buffer syntax (see [Ayms/node-typedarray](https://github.com/Ayms/node-typedarray )
 
 ## Related projects :
 
