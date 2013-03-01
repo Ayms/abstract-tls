@@ -44,7 +44,7 @@ Since the forge code does manipulate strings we must conserve for now the (depre
 
 Buffers can be hex buffers or text utf-8 encoded buffers using TextEncoder and TextDecoder functions (based on http://encoding.spec.whatwg.org/#api ).
 
-Standard new Typed Array buffers do override potential already existing Buffer interface and follow node.js's more friendly Buffer syntax (see [Ayms/node-typedarray](https://github.com/Ayms/node-typedarray )
+Standard new Typed Array buffers do override potential already existing Buffer interface and follow node.js's more friendly Buffer syntax (see [Ayms/node-typedarray](https://github.com/Ayms/node-typedarray) )
 
 ## Related projects :
 
