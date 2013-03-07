@@ -41,10 +41,37 @@ Since the forge code does manipulate strings we must conserve for now the (depre
 	new ByteBuffer :
 		data : Uint8Array (binary representation of the 'utf8' string)
 		read : index
+		length_ : the length of the data filled in the fixed size buffers (see below)
 
 Buffers can be hex buffers or text utf-8 encoded buffers using TextEncoder and TextDecoder functions (based on http://encoding.spec.whatwg.org/#api ).
 
-Standard new Typed Array buffers do override potential already existing Buffer interface and follow node.js's more friendly Buffer syntax (see [Ayms/node-typedarray](https://github.com/Ayms/node-typedarray) )
+Standard new Typed Array buffers do override potential already existing Buffer interface.
+
+Since forge does manipulate/create buffers without knowing their final size, the implementation here does create ArrayBuffers of a fixed length (buffer_size), manipulate them and extend them when necessary, this is to avoid spending a lot of time concatenating buffers.
+
+## Performances :
+
+As usual, Node.js is the last one from far.
+
+buffer_size=1024
+		
+* data_view false + forge_buffer true
+	FF (Nightly) - 34 ops/s
+	Chrome - 34 ops/s
+	Node.js - 12 ops/s
+
+* data view false + forge_buffer false
+	FF (Nightly) - 25 ops/s
+	Chrome - 34 ops/s
+	Node.js - 7 ops/s
+
+* data view true + forge_buffer false
+	FF (Nightly) - 25 ops/s
+	Chrome - 25 ops/s
+	Node.js - 0.3 ops/s (!!!)
+
+buffer_size=0 (ie concat is called many times)
+	Results are globally 1.5 to 2 times slower
 
 ## Related projects :
 
