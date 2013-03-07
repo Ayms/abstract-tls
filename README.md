@@ -56,16 +56,19 @@ As usual, Node.js is the last one from far.
 buffer_size=1024
 		
 * data_view false + forge_buffer true
+	
 	FF (Nightly) - 34 ops/s
 	Chrome - 34 ops/s
 	Node.js - 12 ops/s
 
 * data view false + forge_buffer false
+	
 	FF (Nightly) - 25 ops/s
 	Chrome - 34 ops/s
 	Node.js - 7 ops/s
 
 * data view true + forge_buffer false
+	
 	FF (Nightly) - 25 ops/s
 	Chrome - 25 ops/s
 	Node.js - 0.3 ops/s (!!!)
