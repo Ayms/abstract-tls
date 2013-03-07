@@ -51,6 +51,8 @@ Since forge does manipulate/create buffers without knowing their final size, the
 
 ## Performances :
 
+Iterations on the virtual client/server, see abstract-tls.js
+
 As usual, Node.js is the last one from far.
 
 buffer_size=1024
